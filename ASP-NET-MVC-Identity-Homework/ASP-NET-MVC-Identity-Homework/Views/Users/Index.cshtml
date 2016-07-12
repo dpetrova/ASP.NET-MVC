@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNet.Identity
+@model ASP_NET_MVC_Identity_Homework.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>For users only: welcome @User.Identity.GetUserName()</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Details", "Details", new {id = Model.Id}) |
+            @Html.ActionLink("Delete", "Delete", new {id = Model.Id})
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,7 @@
+﻿@model Snippy.App.Models.ViewModels.ConciseLabelViewModel
+<div class="panel panel-danger">
+    <div class="panel-body">
+        <a href="/Labels/Details/@Model.Id"><h6>@Model.Text</h6></a>
+        <div class="pull-right">Snippets: @Model.SnippetsCount</div>
+    </div>
+</div>

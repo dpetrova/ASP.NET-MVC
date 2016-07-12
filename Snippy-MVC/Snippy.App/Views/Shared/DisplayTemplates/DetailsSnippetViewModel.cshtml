@@ -1,0 +1,39 @@
+﻿@using System.Globalization
+@model Snippy.App.Models.ViewModels.DetailsSnippetViewModel
+<div class="panel panel-danger">
+    <div class="panel-body">
+        <div class="btn btn-default">
+            @Html.ActionLink(@Model.LanguageName, "Details", "Languages")
+        </div>
+        <h2>@Model.Title</h2>
+        by <b>@Model.AuthorUsername</b> on @Model.CreatedOn.ToString("dd-MMM-yyyy hh:mm:ss", CultureInfo.InvariantCulture)
+        Labels:
+        @foreach (var item in Model.Labels)
+        {
+            <span class="btn btn-default">
+                @Html.ActionLink(item.Text, "Details", "Labels")
+            </span>
+        }
+        <div>@Model.Description</div>
+        <br/>
+        <div>@Model.Code</div>
+
+        <h4>Comments:</h4>
+        @if (!Model.Comments.Any())
+        {
+            <p>There are not comments right now</p>
+        }
+        else
+        {
+            foreach (var item in Model.Comments)
+            {
+                @*<div>@Html.DisplayForModel("ConciseCommentViewModel")</div>*@
+                <div>
+                    <p>@item.Content</p>
+                    <b>@item.Author.UserName</b> on @item.CreatedOn.ToString("dd-MMM-yyyy hh:mm:ss", CultureInfo.InvariantCulture)
+                </div>
+                <br/>
+            }
+        }
+    </div>
+</div>

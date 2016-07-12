@@ -1,0 +1,13 @@
+﻿@model Snippy.App.Models.ViewModels.ConciseSnippetViewModel
+<div class="panel panel-danger">
+    <div class="panel-body">
+        <a href="/Snippets/Details/@Model.Id"><h3>@Model.Title</h3></a>
+       @foreach (var item in Model.Labels)
+       {
+           @*<a href="/Snippets/Details/@item.Id"><h6>@item.Text</h6></a>*@
+            <div class="btn btn-default">
+                @Html.ActionLink(item.Text, "Details", "Snippets")
+            </div>
+       }
+    </div>
+</div>

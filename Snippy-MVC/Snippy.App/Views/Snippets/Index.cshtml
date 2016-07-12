@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Snippy.App.Models.ViewModels.ConciseSnippetViewModel>
+@{
+    ViewBag.Title = "All Snippets";
+}
+
+@Html.DisplayForModel()
+
+<ul class="pagination">
+    @for (int page = 1; page <= ViewBag.TotalPages; page++)
+    {
+        string listItemClass = string.Empty;
+        if (page == ViewBag.CurrentPage)
+        {
+            listItemClass = "active";
+        }
+
+        <li class="@listItemClass">
+            @Html.ActionLink(page.ToString(),
+                            "Index",
+                            "Snippets",
+                            routeValues: new { page = page, count = 5 },
+                            htmlAttributes: null)
+        </li>
+    }
+</ul>

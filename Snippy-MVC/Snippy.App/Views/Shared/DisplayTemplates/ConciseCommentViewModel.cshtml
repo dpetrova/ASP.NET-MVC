@@ -1,0 +1,14 @@
+﻿@using System.Globalization
+@model Snippy.App.Models.ViewModels.ConciseCommentViewModel
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <p>@Model.Content</p>
+            <br/>
+            <div>
+                <span><b>@Model.AuthorUsername</b></span> on <span>@Model.CreatedOn.ToString("dd-MMM-yyyy hh:mm:ss", CultureInfo.InvariantCulture)</span>
+            </div>
+            <div>
+                <span>on snippet </span><a href="/Snippets/Details/@Model.SnippetId"><h5>@Model.SnippetTitle</h5></a>
+            </div>
+        </div>
+    </div>
